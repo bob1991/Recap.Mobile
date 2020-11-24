@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Stopwatch.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MaterialApp(
       title: 'Flutter demo',
@@ -13,8 +14,14 @@ void main() => runApp(MaterialApp(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              StopwatchWidghet(),
-              Notepad(),
+              Expanded(
+                child: StopwatchWidghet(),
+                flex: 1,
+              ),
+              Expanded(
+                child: Notepad(),
+                flex: 2,
+              ),
             ],
           ),
         ),
@@ -29,11 +36,24 @@ class Notepad extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
-      color: Colors.white,
+      height: 150,
+      color: Colors.grey,
+      margin: EdgeInsets.all(12),
       child: TextField(
+        cursorColor: Colors.white,
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.white,
+          border: OutlineInputBorder(
+            borderSide: BorderSide(
+                color: Colors.white, width: 1, style: BorderStyle.solid),
+          ),
+        ),
+        textCapitalization: TextCapitalization.sentences,
         keyboardType: TextInputType.multiline,
         maxLines: null,
+        expands: true,
+        style: GoogleFonts.roboto(fontSize: 24, color: Colors.grey[850]),
       ),
     );
   }

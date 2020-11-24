@@ -9,7 +9,7 @@ class StopwatchWidghet extends StatefulWidget {
 }
 
 class _Stopwatch1 extends State<StopwatchWidghet> {
-  int _counter = 0;
+  int _counter = 30;
 
   void start() {
     _counter = 30;
